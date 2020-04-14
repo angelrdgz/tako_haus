@@ -1,0 +1,27 @@
+html {
+  width: 100%;
+  height: 100%;
+}
+
+html body {
+  width: 100%;
+  height: 100%;
+}
+
+html body .less,
+html body .more {
+  border: 1px solid #ccc;
+  border-radius: 50%;
+  font-size: 16px;
+  font-weight: bold;
+  padding: 6px 14px;
+}
+
+html body .quantity {
+  font-size: 16px;
+}
+
+html body .container {
+  padding: 0;
+}
+
