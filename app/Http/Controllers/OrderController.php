@@ -13,13 +13,13 @@ class OrderController extends Controller
     public function index()
     {
         $orders = Order::where('closed', false)->get();
-        return view('orders.index', ['orders'=>$orders]);
+        return view('orders.index', ['orders' => $orders]);
     }
 
     public function create()
     {
         $products = Product::all();
-        return view('orders.create', ["products"=>$products]);
+        return view('orders.create', ["products" => $products]);
     }
 
     public function store(Request $request)
@@ -34,10 +34,10 @@ class OrderController extends Controller
         );
 
         $order = new Order();
-        $order->name= $request->name;
+        $order->name = $request->name;
         $order->save();
 
-        foreach($request->id as $key => $item){
+        foreach ($request->id as $key => $item) {
             $orderProduct = new OrderProduct();
             $orderProduct->order_id = $order->id;
             $orderProduct->product_id = $request->id[$key];
@@ -51,7 +51,7 @@ class OrderController extends Controller
     public function edit($id)
     {
         $order = Order::find($id);
-        return view('orders.edit', ["order"=>$order]);
+        return view('orders.edit', ["order" => $order]);
     }
 
     public function update(Request $request, $id)
@@ -59,7 +59,7 @@ class OrderController extends Controller
         $order = Order::find($id);
         $order->products()->delete();
 
-        foreach($request->id as $key => $item){
+        foreach ($request->id as $key => $item) {
             $orderProduct = new OrderProduct();
             $orderProduct->order_id = $order->id;
             $orderProduct->product_id = $request->id[$key];
@@ -73,9 +73,16 @@ class OrderController extends Controller
     public function destroy(Request $request, $id)
     {
         $order = Order::find($id);
-        $order->closed = true;
-        $order->save();
+        if ($request->order === NULL) {
+            $order->products()->delete();
+            $order->delete();
 
-        return response()->json(['data'=>true]);
+            return redirect('ordenes');
+        } else {
+            $order->closed = true;
+            $order->save();
+
+            return response()->json(['data' => true]);
+        }
     }
 }

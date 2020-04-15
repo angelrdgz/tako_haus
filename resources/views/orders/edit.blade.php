@@ -59,6 +59,16 @@
                             </div>
                         </div>
                     </form>
+                    <br>
+                    <div class="row">
+                        <div class="col-sm-6 offset-sm-3">
+                            <form method="post" action="{{ route('ordenes.destroy', $order->id) }}">
+                                @method('DELETE')
+                                @csrf
+                                <button class="btn btn-block btn-danger">Cancelar Cuenta</button>
+                            </form>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -75,9 +85,9 @@
             let subtotal = 0.0;
 
             for (let index = 0; index < $('.table tbody tr').length; index++) {
-                if($('.table tbody tr').eq(index).find('.subtotal').text() !== ""){
+                if ($('.table tbody tr').eq(index).find('.subtotal').text() !== "") {
                     subtotal += parseFloat($('.table tbody tr').eq(index).find('.subtotal').text())
-                }                
+                }
             }
 
             $('.total').text(subtotal)

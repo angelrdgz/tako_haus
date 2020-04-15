@@ -90,7 +90,8 @@ Listado de Cuentas
             data:{
                 _method: "DELETE",
                 _token: "{{csrf_token()}}",
-                id: orderId
+                id: orderId,
+                order: true
             },
             success: function(data){
                 console.log(data)
