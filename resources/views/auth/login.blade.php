@@ -16,7 +16,7 @@
 
                 <div class="card-body">
                     <img src="{{ asset('images/x.png') }}" class="logo" alt="">
-                    <form method="POST" action="{{ route('login') }}">
+                    <form action="{{ url('/login') }}" method="post">
                         @csrf
 
                         <div class="form-group row">

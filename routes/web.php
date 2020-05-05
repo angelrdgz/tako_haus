@@ -11,13 +11,18 @@
 |
 */
 
-Route::get('/', function () {
-    return redirect('login');
-});
+Route::get('/', 'AuthController@login')->name('login');
+Route::post('/login', 'AuthController@loginPost');
 
-Auth::routes();
+Route::post('logout', 'AuthController@logout')->name('logout');
 
 Route::middleware(['auth'])->group(function () {
     Route::get('/home', 'HomeController@index')->name('home');
+    Route::resource('cuentas', 'AccountController');
     Route::resource('ordenes', 'OrderController');
+    Route::resource('compras', 'PurchaseController');
+    Route::resource('productos', 'ProductController');
+    Route::resource('usuarios', 'UserController');
+    
+    Route::resource('dashboard', 'DashboardController');
 });
