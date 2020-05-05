@@ -118,6 +118,7 @@ class AccountController extends Controller
                 $order->products()->delete();
             }
             $account->orders()->delete();
+            $account->delete();
 
             return redirect('cuentas');
         } else {
