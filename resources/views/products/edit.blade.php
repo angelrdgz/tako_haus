@@ -19,6 +19,9 @@
                     @method('PATCH')
                     @csrf
                     <div class="row">
+                        <div class="col-sm-12">
+                            <h5 class="mb-2 font-weight-bold text-primary">Información de Producto</h5>
+                        </div>
                         <div class="col-sm-4">
                             <div class="form-group">
                                 <label for="exampleFormControlInput1">Nombre</label>
@@ -45,6 +48,34 @@
                                 <p class="text-red-500 text-xs text-danger italic">{{ $message }}</p>
                                 @enderror
                             </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <hr>
+                            <h5 class="mb-2 font-weight-bold text-primary">Receta de Producto</h5>
+                        </div>
+                        <div class="col-sm-12">
+                            <table class="table">
+                                <thead>
+                                    <tr>
+                                        <th>Insumo</th>
+                                        <th>Medida de Uso</th>
+                                        <th>Cantidad</th>
+                                        <th></th>
+                                        <th></th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
+                                    </tr>
+                                </tbody>
+                            </table>
                         </div>
                     </div>
                     <div class="row">

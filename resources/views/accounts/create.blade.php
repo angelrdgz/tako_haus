@@ -26,7 +26,7 @@ Nueva Orden
                                 @enderror
                             </div>
                             <div class="col-sm-3 text-center">
-                                <a class="btn btn-link addDish">Agregar Orden</a>
+                                <a class="btn btn-primary addDish">Agregar Orden</a>
                             </div>
                         </div>
                         <br>
@@ -115,7 +115,7 @@ Nueva Orden
 
         function drawCollapse(id) {
 
-            let newAccordion = '<div class="card">' +
+            let newAccordion = '<div class="card mb-2">' +
                 '<div class="card-header">' +
                 '<h5 class="mb-0"></h5>' +
                 '<a class="btn btn-link" data-toggle="collapse" data-target="#collapse' + id + '" aria-expanded="true" aria-control="collapse' + id + '">Orden #' + id + '</a>' +

@@ -18,7 +18,7 @@
                     <div class="row">
                         <div class="col-sm-4">
                             <label for="">Nombre</label>
-                            <input name="nombre" type="text" class="form-control">
+                            <input name="name" type="text" class="form-control">
                             @error('nombre')
                             <p class="text-red-500 text-xs text-danger italic">{{ $message }}</p>
                             @enderror

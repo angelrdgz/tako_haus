@@ -122,6 +122,10 @@ class AccountController extends Controller
 
             return redirect('cuentas');
         } else {
+            foreach ($account->orders as $order) {
+                $order->emptyProducts()->delete();
+            }
+            $account->orders()->delete();
             $account->closed = true;
             $account->save();
 

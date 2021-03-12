@@ -1,0 +1,14 @@
+@import url('https://fonts.googleapis.com/css?family=Nunito');
+// Variables
+@import 'variables';
+@import '~bootstrap/scss/bootstrap';
+.sidebar {
+    background: $primary-app;
+    /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, $primary-app, $secondary-app);
+    /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, $primary-app, $secondary-app);
+    .sidebar-brand {
+        height: auto;
+    }
+}
