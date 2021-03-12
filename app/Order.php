@@ -12,6 +12,10 @@ class Order extends Model
         return $this->hasMany('App\OrderProduct');
     }
 
+    public function emptyProducts(){
+        return $this->hasMany('App\OrderProduct')->where('quantity', 0);
+    }
+
     public function productsList(){
         return $this->hasMany('App\OrderProduct')->where('quantity', '>', 0);
     }

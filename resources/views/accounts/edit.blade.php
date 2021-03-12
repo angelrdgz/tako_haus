@@ -24,7 +24,7 @@
                                 @enderror
                             </div>
                             <div class="col-sm-3 text-center">
-                                <a class="btn btn-link addDish">Agregar Orden</a>
+                                <a class="btn btn-primary addDish">Agregar Plato</a>
                             </div>
                         </div>
                         <br>
@@ -33,11 +33,11 @@
                                 <div id="accordion">
                                     <?php $x = 1; ?>
                                     @foreach($account->orders as $order)
-                                    <div class="card">
+                                    <div class="card mb-2">
                                         <div class="card-header">
                                             <div class="row">
                                                 <div class="col-sm-10">
-                                                <a class="btn btn-link" data-toggle="collapse" data-target="#collapse{{$x}}" aria-expanded="true" aria-control="collapse' + id + '">Orden #{{$x}} </a>
+                                                <a class="btn btn-link" data-toggle="collapse" data-target="#collapse{{$x}}" aria-expanded="true" aria-control="collapse' + id + '">Plato #{{$x}} </a>
                                                 <p class="pd-4">
                                                     @foreach($order->productsList as $product)
                                                      {{$product->quantity.' '.$product->product->name}}, 
@@ -149,10 +149,10 @@
 
         function drawCollapse(id) {
 
-            let newAccordion = '<div class="card">' +
+            let newAccordion = '<div class="card mb-2">' +
                 '<div class="card-header">' +
                 '<h5 class="mb-0"></h5>' +
-                '<a class="btn btn-link" data-toggle="collapse" data-target="#collapse' + id + '" aria-expanded="true" aria-control="collapse' + id + '">Orden #' + id + '</a>' +
+                '<a class="btn btn-link" data-toggle="collapse" data-target="#collapse' + id + '" aria-expanded="true" aria-control="collapse' + id + '">Plato #' + id + '</a>' +
                 '</div>' +
                 '<div id="collapse' + id + '" class="collapse show" data-parent="#accordion">' +
                 '<div class="card-body">' +

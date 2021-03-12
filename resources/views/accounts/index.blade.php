@@ -8,7 +8,7 @@ Listado de Cuentas
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-xs-12 col-sm-12 col-md-12">
-            <div class="card">
+            <div class="card mt-3">
 
                 <div class="card-body">
                     @if (session('status'))
@@ -21,8 +21,8 @@ Listado de Cuentas
                             <tr>
                                 <th>Cuenta</th>
                                 <th>Total</th>
-                                <th colspan="2" class="text-center">
-                                <a href="{{ url('cuentas/create') }}" class="btn btn-block btn-link">Nueva Cuenta</a>
+                                <th colspan="2" class="text-right">
+                                <a href="{{ url('cuentas/create') }}" class="btn btn-primary">Nueva Cuenta</a>
                                 </th>
                             </tr>
                         </thead>
@@ -32,10 +32,10 @@ Listado de Cuentas
                                 <td>{{ $account->name }}</td>
                                 <td>${{ number_format($account->total,2) }}</td>
                                 <td>
-                                    <a href="{{ url('cuentas/'.$account->id.'/edit') }}" class="btn btn-block btn-link">Modificar</a>
+                                    <a href="{{ url('cuentas/'.$account->id.'/edit') }}" class="btn btn-block btn-outline-primary">Modificar</a>
                                 </td>
                                 <td>
-                                    <a accountId="{{ $account->id }}" total="{{ $account->total }}" class="btn btn-link cover">Cobrar</a>
+                                    <a accountId="{{ $account->id }}" total="{{ $account->total }}" class="btn btn-block btn-outline-primary cover">Cobrar</a>
                                 </td>
                             </tr>
                             @endforeach

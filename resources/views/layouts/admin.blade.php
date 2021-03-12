@@ -8,8 +8,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <meta name="description" content="">
   <meta name="author" content="">
+  <link rel="shortcut icon" href="{{ asset('images/nuevo_logo.png') }}">
 
-  <title>Lindy Pharma</title>
+  <title>Tacos y Carnes Asadas "Chayito"</title>
 
   <!-- Custom fonts for this template-->
   <link href="{{ asset('css/font_awesome.css') }}" rel="stylesheet" type="text/css">
@@ -19,6 +20,7 @@
 
   <!-- Custom styles for this template-->
   <link href="{{ asset('css/admin.css') }}" rel="stylesheet">
+  <link href="{{ asset('css/dashboard.css') }}" rel="stylesheet">
 
 </head>
 
@@ -28,7 +30,7 @@
   <div id="wrapper">
 
     <!-- Sidebar -->
-    <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
+    <ul class="navbar-nav sidebar sidebar-dark accordion" id="accordionSidebar">
 
       <!-- Sidebar - Brand -->
       <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.html">
@@ -36,7 +38,8 @@
           <i class="fas fa-laugh-wink"></i>
         </div>-->
         <div class="sidebar-brand-text mx-3">
-    <img src="{{ asset('images/logo.png') }}" class="logo p-1" alt="">
+          <img src="{{ asset('images/nuevo_logo.png') }}" class="logo p-1" alt="">
+          <!--<span>Tacos Chayito</span>-->
         </div>
       </a>
 
@@ -46,27 +49,27 @@
       <!-- Nav Item - Dashboard -->
       <li class="nav-item {{ Request::is('dashboard') ? 'active':'' }}">
         <a class="nav-link" href="{{ url('dashboard') }}">
-        <i class="fas fa-clipboard-list"></i>
+          <i class="fas fa-chart-line"></i>
           <span>Dashboard</span></a>
       </li>
       <li class="nav-item {{ Request::is('usuarios') ? 'active':'' }}">
         <a class="nav-link" href="{{ url('usuarios') }}">
-        <i class="fas fa-cart-arrow-down"></i>
+          <i class="fas fa-users"></i>
           <span>Usuarios</span></a>
       </li>
       <li class="nav-item {{ Request::is('productos') ? 'active':'' }}">
         <a class="nav-link" href="{{ url('productos') }}">
-        <i class="fas fa-cart-arrow-down"></i>
+          <i class="fas fa-utensils"></i>
           <span>Productos</span></a>
       </li>
       <li class="nav-item {{ Request::is('compras') ? 'active':'' }}">
         <a class="nav-link" href="{{ url('compras') }}">
-        <i class="fas fa-cart-arrow-down"></i>
+          <i class="fas fa-store"></i>
           <span>Compras</span></a>
       </li>
       <li class="nav-item {{ Request::is('usuarios') ? 'active':'' }}">
         <a class="nav-link" href="{{ url('usuarios') }}">
-        <i class="fas fa-user-friends"></i>
+          <i class="fas fa-hand-holding-usd"></i>
           <span>Salidas de Efectivo</span></a>
       </li>
       <!-- Divider -->
@@ -330,15 +333,15 @@
                   Activity Log
                 </a>
                 <div class="dropdown-divider"></div>
-                <a class="dropdown-item"  href="{{ route('logout') }}" onclick="event.preventDefault();
+                <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
                   <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
                   Salir
                 </a>
 
-                                    <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-                                        @csrf
-                                    </form>
+                <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                  @csrf
+                </form>
               </div>
             </li>
 
@@ -356,27 +359,27 @@
             <a href="#" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i class="fas fa-download fa-sm text-white-50"></i> Generate Report</a>
           </div>-->
           @if (session('success'))
-          <div class="row ">          
+          <div class="row ">
             <div class="col-sm-12 mb-10">
-                  <div class="card bg-success text-white shadow">
-                    <div class="card-body">
-                    {{ session('success') }}
-                    </div>
-                  </div>
-                </div>            
+              <div class="card bg-success text-white shadow">
+                <div class="card-body">
+                  {{ session('success') }}
+                </div>
+              </div>
+            </div>
           </div>
           <br>
           @endif
 
           @if (session('error'))
-          <div class="row ">          
+          <div class="row ">
             <div class="col-sm-12 mb-10">
-                  <div class="card bg-danger text-white shadow">
-                    <div class="card-body">
-                    {{ session('error') }}
-                    </div>
-                  </div>
-                </div>            
+              <div class="card bg-danger text-white shadow">
+                <div class="card-body">
+                  {{ session('error') }}
+                </div>
+              </div>
+            </div>
           </div>
           <br>
           @endif
@@ -385,9 +388,9 @@
           @yield("content")
 
           <div class="row">
-           <div class="col-sm-12">
-               
-           </div>
+            <div class="col-sm-12">
+
+            </div>
           </div>
 
         </div>
@@ -450,23 +453,22 @@
   <script src="{{ asset('js/sb-admin-2.js')}} "></script>
 
   <script>
+    function isNumber(evt) {
+      var charCode = (evt.which) ? evt.which : evt.keyCode;
+      if (charCode != 46 && charCode > 31 &&
+        (charCode < 48 || charCode > 57))
+        return false;
 
-function isNumber(evt) {
-  var charCode = (evt.which) ? evt.which : evt.keyCode;
-          if (charCode != 46 && charCode > 31 
-            && (charCode < 48 || charCode > 57))
-             return false;
-
-          return true;
-}
-
-  $(document).on('keypress','.number',function (e) {
-     //if the letter is not digit then display error and don't type anything
-     if (e.which != 46 && e.which > 31 && (e.which < 48 || e.which > 57)) {
-        //display error message
-               return false;
+      return true;
     }
-   });
+
+    $(document).on('keypress', '.number', function(e) {
+      //if the letter is not digit then display error and don't type anything
+      if (e.which != 46 && e.which > 31 && (e.which < 48 || e.which > 57)) {
+        //display error message
+        return false;
+      }
+    });
   </script>
 
   @yield('script')
