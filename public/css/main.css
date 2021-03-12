@@ -21,6 +21,7 @@
     src: url("../fonts/montserrat/Montserrat-Bold.ttf");
 }
 
+
 /*//////////////////////////////////////////////////////////////////
 [ RESTYLE TAG ]*/
 
@@ -36,7 +37,9 @@ html {
     font-family: Poppins-Regular, sans-serif;
 }
 
+
 /*---------------------------------------------*/
+
 a {
     font-family: Poppins-Regular;
     font-size: 14px;
@@ -58,7 +61,9 @@ a:hover {
     color: #57b846;
 }
 
+
 /*---------------------------------------------*/
+
 h1,
 h2,
 h3,
@@ -82,7 +87,9 @@ li {
     list-style-type: none;
 }
 
+
 /*---------------------------------------------*/
+
 input {
     outline: none;
     border: none;
@@ -101,12 +108,15 @@ input:focus {
 input:focus::-webkit-input-placeholder {
     color: transparent;
 }
+
 input:focus:-moz-placeholder {
     color: transparent;
 }
+
 input:focus::-moz-placeholder {
     color: transparent;
 }
+
 input:focus:-ms-input-placeholder {
     color: transparent;
 }
@@ -114,12 +124,15 @@ input:focus:-ms-input-placeholder {
 textarea:focus::-webkit-input-placeholder {
     color: transparent;
 }
+
 textarea:focus:-moz-placeholder {
     color: transparent;
 }
+
 textarea:focus::-moz-placeholder {
     color: transparent;
 }
+
 textarea:focus:-ms-input-placeholder {
     color: transparent;
 }
@@ -127,12 +140,15 @@ textarea:focus:-ms-input-placeholder {
 input::-webkit-input-placeholder {
     color: #999999;
 }
+
 input:-moz-placeholder {
     color: #999999;
 }
+
 input::-moz-placeholder {
     color: #999999;
 }
+
 input:-ms-input-placeholder {
     color: #999999;
 }
@@ -140,17 +156,22 @@ input:-ms-input-placeholder {
 textarea::-webkit-input-placeholder {
     color: #999999;
 }
+
 textarea:-moz-placeholder {
     color: #999999;
 }
+
 textarea::-moz-placeholder {
     color: #999999;
 }
+
 textarea:-ms-input-placeholder {
     color: #999999;
 }
 
+
 /*---------------------------------------------*/
+
 button {
     outline: none !important;
     border: none;
@@ -165,8 +186,10 @@ iframe {
     border: none !important;
 }
 
+
 /*//////////////////////////////////////////////////////////////////
 [ Utility ]*/
+
 .txt1 {
     font-family: Poppins-Regular;
     font-size: 13px;
@@ -180,6 +203,7 @@ iframe {
     line-height: 1.5;
     color: #666666;
 }
+
 
 /*//////////////////////////////////////////////////////////////////
 [ login ]*/
@@ -201,17 +225,12 @@ iframe {
     justify-content: center;
     align-items: center;
     padding: 15px;
-    background: #fdc830; /* fallback for old browsers */
-    background: -webkit-linear-gradient(
-        to right,
-        #f37335,
-        #fdc830
-    ); /* Chrome 10-25, Safari 5.1-6 */
-    background: linear-gradient(
-        to right,
-        #f37335,
-        #fdc830
-    ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    background: #fdc830;
+    /* fallback for old browsers */
+    background: -webkit-linear-gradient( to right, #f37335, #fdc830);
+    /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient( to right, #f37335, #fdc830);
+    /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 }
 
 .wrap-login100 {
@@ -219,7 +238,6 @@ iframe {
     background: #fff;
     border-radius: 10px;
     overflow: hidden;
-
     display: -webkit-box;
     display: -webkit-flex;
     display: -moz-box;
@@ -230,8 +248,10 @@ iframe {
     padding: 177px 130px 33px 95px;
 }
 
+
 /*------------------------------------------------------------------
 [  ]*/
+
 .login100-pic {
     width: 316px;
 }
@@ -240,8 +260,10 @@ iframe {
     max-width: 100%;
 }
 
+
 /*------------------------------------------------------------------
 [  ]*/
+
 .login100-form {
     width: 290px;
 }
@@ -252,13 +274,14 @@ iframe {
     color: #333333;
     line-height: 1.2;
     text-align: center;
-
     width: 100%;
     display: block;
     padding-bottom: 54px;
 }
 
+
 /*---------------------------------------------*/
+
 .wrap-input100 {
     position: relative;
     width: 100%;
@@ -271,7 +294,6 @@ iframe {
     font-size: 15px;
     line-height: 1.5;
     color: #666666;
-
     display: block;
     width: 100%;
     background: #e6e6e6;
@@ -280,8 +302,10 @@ iframe {
     padding: 0 30px 0 68px;
 }
 
+
 /*------------------------------------------------------------------
 [ Focus ]*/
+
 .focus-input100 {
     display: block;
     position: absolute;
@@ -295,7 +319,7 @@ iframe {
     color: rgba(87, 184, 70, 0.8);
 }
 
-.input100:focus + .focus-input100 {
+.input100:focus+.focus-input100 {
     -webkit-animation: anim-shadow 0.5s ease-in-out forwards;
     animation: anim-shadow 0.5s ease-in-out forwards;
 }
@@ -316,7 +340,6 @@ iframe {
 
 .symbol-input100 {
     font-size: 15px;
-
     display: -webkit-box;
     display: -webkit-flex;
     display: -moz-box;
@@ -332,20 +355,21 @@ iframe {
     padding-left: 35px;
     pointer-events: none;
     color: #666666;
-
     -webkit-transition: all 0.4s;
     -o-transition: all 0.4s;
     -moz-transition: all 0.4s;
     transition: all 0.4s;
 }
 
-.input100:focus + .focus-input100 + .symbol-input100 {
+.input100:focus+.focus-input100+.symbol-input100 {
     color: #57b846;
     padding-left: 28px;
 }
 
+
 /*------------------------------------------------------------------
 [ Button ]*/
+
 .container-login100-form-btn {
     width: 100%;
     display: -webkit-box;
@@ -364,22 +388,15 @@ iframe {
     line-height: 1.5;
     color: #fff;
     text-transform: uppercase;
-
     width: 100%;
     height: 50px;
     border-radius: 25px;
-    background: #fdc830; /* fallback for old browsers */
-    background: -webkit-linear-gradient(
-        to right,
-        #f37335,
-        #fdc830
-    ); /* Chrome 10-25, Safari 5.1-6 */
-    background: linear-gradient(
-        to right,
-        #f37335,
-        #fdc830
-    ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-
+    background: #fdc830;
+    /* fallback for old browsers */
+    background: -webkit-linear-gradient( to right, #f37335, #fdc830);
+    /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient( to right, #f37335, #fdc830);
+    /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
     display: -webkit-box;
     display: -webkit-flex;
     display: -moz-box;
@@ -388,7 +405,6 @@ iframe {
     justify-content: center;
     align-items: center;
     padding: 0 25px;
-
     -webkit-transition: all 0.4s;
     -o-transition: all 0.4s;
     -moz-transition: all 0.4s;
@@ -399,6 +415,7 @@ iframe {
     background: #333333;
 }
 
+
 /*------------------------------------------------------------------
 [ Responsive ]*/
 
@@ -406,11 +423,9 @@ iframe {
     .wrap-login100 {
         padding: 177px 90px 33px 85px;
     }
-
     .login100-pic {
         width: 35%;
     }
-
     .login100-form {
         width: 50%;
     }
@@ -420,11 +435,9 @@ iframe {
     .wrap-login100 {
         padding: 100px 80px 33px 80px;
     }
-
     .login100-pic {
-        display: none;
+        margin: 0 auto;
     }
-
     .login100-form {
         width: 100%;
     }
@@ -435,6 +448,7 @@ iframe {
         padding: 100px 15px 33px 15px;
     }
 }
+
 
 /*------------------------------------------------------------------
 [ Alert validate ]*/
@@ -459,16 +473,13 @@ iframe {
     transform: translateY(-50%);
     right: 8px;
     pointer-events: none;
-
     font-family: Poppins-Medium;
     color: #c80000;
     font-size: 13px;
     line-height: 1.4;
     text-align: left;
-
     visibility: hidden;
     opacity: 0;
-
     -webkit-transition: opacity 0.4s;
     -o-transition: opacity 0.4s;
     -moz-transition: opacity 0.4s;
