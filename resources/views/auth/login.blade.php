@@ -7,7 +7,7 @@
     <link href="{{ asset('css/font_awesome.css') }}" rel="stylesheet" type="text/css">
     <link rel="stylesheet" href="{{ asset('css/util.css') }}">
     <link rel="stylesheet" href="{{ asset('css/main.css') }}">
-    <link rel="shortcut icon" href="{{ asset('images/favicon.jpg') }}">
+    <link rel="shortcut icon" href="{{ asset('images/nuevo_logo.png') }}">
     <title>Tacos Chayito</title>
 </head>
 
