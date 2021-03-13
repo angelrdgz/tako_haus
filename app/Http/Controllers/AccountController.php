@@ -19,7 +19,7 @@ class AccountController extends Controller
 
     public function create()
     {
-        $products = Product::all();
+        $products = Product::orderBy('name', 'DESC')->get();
         return view('accounts.create', ["products" => $products]);
     }
 
@@ -68,7 +68,7 @@ class AccountController extends Controller
     public function edit($id)
     {
         $account = Account::find($id);
-        $products = Product::all();
+        $products = Product::orderBy('name', 'DESC')->get();
         return view('accounts.edit', ["account" => $account, "products"=>$products]);
     }
 
