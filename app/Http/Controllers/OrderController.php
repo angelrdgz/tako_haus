@@ -18,7 +18,7 @@ class OrderController extends Controller
 
     public function create()
     {
-        $products = Product::all();
+        $products = Product::orderBy('name', 'DESC')->get();
         return view('orders.create', ["products" => $products]);
     }
 
