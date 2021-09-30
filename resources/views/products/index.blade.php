@@ -24,7 +24,8 @@
                             <tr>
                                 <th>#</th>
                                 <th>Nombre</th>
-                                <th>Precio</th>
+                                <th>Tamaño</th>
+                                <th>Tipo</th>
                                 <th>Descripción</th>
                                 <th></th>
                             </tr>
@@ -34,7 +35,8 @@
                             <tr>
                                 <td>{{ $product->id }}</td>
                                 <td>{{ $product->name }}</td>
-                                <td>${{ number_format($product->price,2) }}</td>
+                                <td>{{ $product->size }}</td>
+                                <td>{{ $product->type }}</td>
                                 <td>{{ $product->description }}</td>
                                 <td>
                                     <a href="{{ url('productos/'.$product->id.'/edit')}}" class="btn btn-warning btn-icon-split btn-sm">
@@ -43,6 +45,13 @@
                                         </span>
                                         <span class="text">Modificar</span>
                                     </a>
+                                    <form action="{{ route('productos.destroy',$product->id) }}" method="POST">
+                    
+                                        @csrf
+                                        @method('DELETE')
+                    
+                                        <button type="submit" class="btn btn-danger">Delete</button>
+                                    </form>
                                 </td>
                             </tr>
                             @endforeach

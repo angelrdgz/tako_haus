@@ -17,12 +17,15 @@ Route::post('/login', 'AuthController@loginPost');
 Route::post('logout', 'AuthController@logout')->name('logout');
 
 Route::middleware(['auth'])->group(function () {
+    Route::resource('dashboard', 'DashboardController');
     Route::get('/home', 'HomeController@index')->name('home');
     Route::resource('cuentas', 'AccountController');
     Route::resource('ordenes', 'OrderController');
     Route::resource('compras', 'PurchaseController');
     Route::resource('productos', 'ProductController');
+    Route::get('tipos/{sizeId}', 'ProductTypeController@index');
+    Route::resource('tamanos/{productId}', 'ProductSizeController');    
     Route::resource('usuarios', 'UserController');
     
-    Route::resource('dashboard', 'DashboardController');
+    
 });

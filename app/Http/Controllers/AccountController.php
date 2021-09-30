@@ -19,7 +19,7 @@ class AccountController extends Controller
 
     public function create()
     {
-        $products = Product::orderBy('name', 'DESC')->get();
+        $products = Product::orderBy('name', 'ASC')->get();
         return view('accounts.create', ["products" => $products]);
     }
 
@@ -34,27 +34,28 @@ class AccountController extends Controller
             ]
         );
 
-        $hm = (count($request->all()) -2 ) / 2;
-
         $account = new Account();
         $account->name = $request->name;
         $account->save();
 
         $total = 0;
 
-        for ($i=1; $i <= $hm; $i++) { 
+        for ($i=1; $i <= $request->count; $i++) { 
             $order = new Order();
             $order->account_id = $account->id;
+            $order->onion = $request->get("onion-".$i);
+            $order->cilantro = $request->get("cilantro-".$i);
             $order->save();
 
-            foreach ($request->get("id-".$i) as $key => $value) {
-
-                $product = Product::find($request->get("id-".$i)[$key]);
-                $total += $product->price * floatval($request->get("quantityItem-".$i)[$key]);
+            foreach ($request->get("productId-".$i) as $key => $value) {
+                $total += $request->get("priceItem-".$i)[$key] * floatval($request->get("quantityItem-".$i)[$key]);
 
                 $accountProduct = new OrderProduct();
                 $accountProduct->order_id = $order->id;
-                $accountProduct->product_id = $request->get("id-".$i)[$key];
+                $accountProduct->product_id = $request->get("productId-".$i)[$key];
+                $accountProduct->product_size_id = $request->get("sizeId-".$i)[$key];
+                $accountProduct->product_type_id = $request->get("typeId-".$i)[$key];
+                $accountProduct->price = $request->get("priceItem-".$i)[$key];
                 $accountProduct->quantity = $request->get("quantityItem-".$i)[$key];
                 $accountProduct->save();
             }
@@ -68,7 +69,7 @@ class AccountController extends Controller
     public function edit($id)
     {
         $account = Account::find($id);
-        $products = Product::orderBy('name', 'DESC')->get();
+        $products = Product::orderBy('name', 'ASC')->get();
         return view('accounts.edit', ["account" => $account, "products"=>$products]);
     }
 
@@ -81,31 +82,34 @@ class AccountController extends Controller
         }
         $account->orders()->delete();
 
-        $hm = (count($request->all()) - 3 ) / 2;
+        $hm = (count($request->all()) - 3 ) / 4;
         $account->name = $request->name;
         $account->save();
 
         $total = 0;
 
-        for ($i=1; $i <= $hm; $i++) { 
+        for ($i=1; $i <= $request->count; $i++) { 
             $order = new Order();
             $order->account_id = $account->id;
+            $order->onion = $request->get("onion-".$i);
+            $order->cilantro = $request->get("cilantro-".$i);
             $order->save();
 
-            foreach ($request->get("id-".$i) as $key => $value) {
-
-                $product = Product::find($request->get("id-".$i)[$key]);
-                $total += $product->price * floatval($request->get("quantityItem-".$i)[$key]);
+            foreach ($request->get("productId-".$i) as $key => $value) {
+                $total += $request->get("priceItem-".$i)[$key] * floatval($request->get("quantityItem-".$i)[$key]);
 
                 $accountProduct = new OrderProduct();
                 $accountProduct->order_id = $order->id;
-                $accountProduct->product_id = $request->get("id-".$i)[$key];
+                $accountProduct->product_id = $request->get("productId-".$i)[$key];
+                $accountProduct->product_size_id = $request->get("sizeId-".$i)[$key];
+                $accountProduct->product_type_id = $request->get("typeId-".$i)[$key];
+                $accountProduct->price = $request->get("priceItem-".$i)[$key];
                 $accountProduct->quantity = $request->get("quantityItem-".$i)[$key];
                 $accountProduct->save();
             }
         }
 
-        Account::where('id', $id)->update(["total"=>$total]);
+        Account::where('id', $account->id)->update(["total"=>$total]);
 
         return redirect('cuentas');
     }
@@ -114,18 +118,16 @@ class AccountController extends Controller
     {
         $account = Account::find($id);
         if ($request->order === NULL) {
+
             foreach ($account->orders as $order) {
                 $order->products()->delete();
             }
             $account->orders()->delete();
+            
             $account->delete();
 
             return redirect('cuentas');
         } else {
-            foreach ($account->orders as $order) {
-                $order->emptyProducts()->delete();
-            }
-            $account->orders()->delete();
             $account->closed = true;
             $account->save();
 

@@ -1,7 +1,11 @@
-@import url('https://fonts.googleapis.com/css?family=Nunito');
+@import url("https://fonts.googleapis.com/css?family=Nunito");
 // Variables
-@import 'variables';
-@import '~bootstrap/scss/bootstrap';
+@import "variables";
+@import "~bootstrap/scss/bootstrap";
+
+.text-orage {
+    color: $primary-app;
+}
 .sidebar {
     background: $primary-app;
     /* fallback for old browsers */
@@ -12,3 +16,76 @@
         height: auto;
     }
 }
+
+.table {
+    tbody {
+        tr {
+            td{
+                a{
+                    display:inline-block;
+
+                    .fa-pencil-alt {
+                        display: block;
+                    }
+                    .fa-check {
+                        display: none;
+                    }
+                }
+            }
+        }
+        tr.active {
+            td{
+                a{
+                    display:inline-block;
+
+                    .fa-pencil-alt {
+                        display: none;
+                    }
+                    .fa-check {
+                        display: block;
+                    }
+                }
+            }
+        }
+    }
+}
+
+.card-counter {
+    box-shadow: 2px 2px 10px #DADADA;
+    margin: 5px;
+    padding: 20px 10px;
+    background-color: #fff;
+    height: 100px;
+    border-radius: 5px;
+    transition: .3s linear all;
+  
+    &:hover {
+      box-shadow: 4px 4px 20px #DADADA;
+      transition: .3s linear all;
+    }
+  
+    i {
+      font-size: 5em;
+      opacity: 0.5;
+      color:#fff;
+    }
+  
+    .count-numbers {
+      position: absolute;
+      right: 35px;
+      top: 20px;
+      font-size: 32px;
+      display: block;
+    }
+  
+    .count-name {
+      position: absolute;
+      right: 35px;
+      top: 65px;
+      font-style: italic;
+      text-transform: capitalize;
+      opacity: 0.5;
+      display: block;
+      font-size: 18px;
+    }
+  }
